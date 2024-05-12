@@ -1,0 +1,35 @@
+ Here is an example of binary search in Python:
+```
+def binary_search(arr, target):
+    low, high = 0, len(arr) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return -1  # not found
+
+# Example usage:
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+target = 5
+result = binary_search(arr, target)
+
+if result != -1:
+    print("Element found at index", result)
+else:
+    print("Element not found")
+```
+This code defines a function `binary_search` that takes a sorted array `arr` and a target value `target` as input. It returns the index of the target value in the array if it exists, or -1 if it doesn't.
+
+The function works by maintaining a range of indices `[low, high]` that potentially contain the target value. It repeatedly calculates the midpoint `mid` of this range and compares the value at `arr[mid]` to the target value.
+
+If the value at `arr[mid]` is equal to the target value, the function returns the index `mid`. If the value at `arr[mid]` is less than the target value, the function updates the `low` index to `mid + 1`. If the value at `arr[mid]` is greater than the target value, the function updates the `high` index to `mid - 1`.
+
+The function repeats this process until the `low` index is greater than the `high` index, at which point it returns -1 to indicate that the target value was not found.
+
+In the example usage, we create a sorted array `arr` and a target value `target`, and then call the `binary_search` function to find the index of the target value. If the result is not -1, we print a success message indicating the index at which the element was found. Otherwise, we print a failure message indicating that the element was not found.
